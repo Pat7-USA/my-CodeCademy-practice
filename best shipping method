@@ -1,0 +1,25 @@
+weight = 23
+ground_flat = 20
+ground_lb = 0 # Initialize the variable
+ground_shipping = 0 # Initialize the variable
+g_ship_prem_flat = 125
+drone_shipping = 0 # Initialize the variable
+
+if weight <= 2:
+  ground_lb = weight*1.5
+elif 2 < weight <=6:
+  ground_lb = weight*3
+elif 6 < weight <=10:
+  ground_lb = weight*4
+elif 10 < weight:
+  ground_lb = weight*4.75
+
+ground_shipping = ground_lb + ground_flat
+drone_shipping = ground_lb*3
+
+if g_ship_prem_flat < ground_shipping and g_ship_prem_flat < drone_shipping:
+  print("Ground Shipping Premium is the most inexpensive: $",g_ship_prem_flat)
+elif ground_shipping < drone_shipping and ground_shipping < g_ship_prem_flat:
+  print("Ground Shipping is the most inexpensive: $",ground_shipping)
+elif drone_shipping < ground_shipping and drone_shipping < g_ship_prem_flat:
+  print("Drone Shipping is the most inexpensive: $",drone_shipping)
